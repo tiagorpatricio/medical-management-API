@@ -1,38 +1,29 @@
-const patientsService = require("../services/patients");
-const { DbError } = require("../utils/errors");
+const {
+  getAllPatientsServ,
+  getAllAdmittedPatientsServ,
+  getPatientsById,
+} = require("../services/patients");
 
-exports.getAllPatients = (req, res) => {
-    try {
-        res.send(patientsService.getAllPatientsServ());
-    } catch (error) {
-        if (error instanceof DbError) {
-            res.status(500).send({ error: "DB malfunction" });
-        } else {
-            res.send({ error });
-        }
-    }
+exports.getAllPatients = async (req, res) => {
+  try {
+    res.send(await getAllPatientsServ());
+  } catch (error) {
+    res.send( error );
+  }
 };
 
-exports.getAllAdmittedPatients = (req, res) => {
-    try {
-        res.send(patientsService.getAllAdmittedPatientsServ());
-    } catch (error) {
-        if (error instanceof DbError) {
-            res.status(500).send({ error: "DB malfunction" });
-        } else {
-            res.send({ error });
-        }
-    }
+exports.getAllAdmittedPatients = async (req, res) => {
+  try {
+    res.send(await getAllAdmittedPatientsServ());
+  } catch (error) {
+    res.send( error );
+  }
 };
 
-exports.getPatientById = (req, res) => {
-    try {
-        res.send(patientsService.getPatientsById(req.params));
-    } catch (error) {
-        if (error instanceof DbError) {
-            res.status(500).send({ error: "DB malfunction" });
-        } else {
-            res.send({ error });
-        }
-    }
+exports.getPatientById = async (req, res) => {
+  try {
+    res.send(await getPatientsById(req.params));
+  } catch (error) {
+    res.send(error );
+  }
 };
