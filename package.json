@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A helpfull tool managing medical services",
   "scripts": {
-    "dev": "nodemon api/routes/index.js"
+    "dev": "nodemon api/routes/index.ts"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
@@ -12,6 +12,7 @@
     "mysql2": "^2.3.2"
   },
   "devDependencies": {
+    "@types/node": "^16.11.11",
     "nodemon": "^2.0.14"
   }
 }

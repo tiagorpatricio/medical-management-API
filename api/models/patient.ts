@@ -1,7 +1,7 @@
 const Joi = require("joi")
 
 
-module.exports =  patientSchema = Joi.object({
+const patientSchema = Joi.object({
         id: Joi.number(),
         first_name: Joi.string().min(3).required(),
         last_name: Joi.string().min(3).required(),
@@ -16,4 +16,6 @@ module.exports =  patientSchema = Joi.object({
         conditions: Joi.object(),
         currently_admitted: Joi.bool()
 })
+
+export default patientSchema;
 
