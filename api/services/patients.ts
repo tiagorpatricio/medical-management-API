@@ -23,7 +23,7 @@ exports.getAllAdmittedPatientsServ = async () => {
   }
 };
 
-exports.getPatientsById = async (params) => {
+exports.getPatientsById = async (params: any) => {
   try {
     const patientById = await getPatientById(params);
     return queryResponseDataSelection(patientById);
@@ -31,3 +31,5 @@ exports.getPatientsById = async (params) => {
     throw err;
   }
 };
+
+export {};
