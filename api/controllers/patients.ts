@@ -1,7 +1,9 @@
 const {
   getAllPatientsServ,
   getAllAdmittedPatientsServ,
-  getPatientsById,
+  getPatientsByIdServ,
+  createNewPatientServ,
+  updatePatientServ,
 } = require("../services/patients");
 
 exports.getAllPatients = async (req: any, res: any) => {
@@ -22,7 +24,23 @@ exports.getAllAdmittedPatients = async (req: any, res: any) => {
 
 exports.getPatientById = async (req: any, res: any) => {
   try {
-    res.send(await getPatientsById(req.params));
+    res.send(await getPatientsByIdServ(req.params));
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+exports.createNewPatient = async (req: any, res: any) => {
+  try {
+    res.send(await createNewPatientServ(req.body));
+  } catch (error) {
+    res.send(error);
+  }
+};
+
+exports.updatePatient = async (req: any, res: any) => {
+  try {
+    res.send(await updatePatientServ(req.params, req.body));
   } catch (error) {
     res.send(error);
   }
