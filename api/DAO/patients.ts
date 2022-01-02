@@ -5,7 +5,6 @@ module.exports.getAllPatients = () =>
     connection.query(
       "CALL Get_All_Patients()",
       (err: object, rows: object[]) => {
-        console.log(err ?? rows);
         err ? reject(err) : resolve(rows);
       }
     );
@@ -86,7 +85,6 @@ module.exports.updatePatient = (
     currently_admitted,
   }
 ) => {
-  console.log(patientId);
   new Promise((resolve, reject) => {
     connection.query(
       `CALL update_patient(${patientId},"${first_name}","${last_name}",${age},${

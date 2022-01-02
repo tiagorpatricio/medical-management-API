@@ -7,7 +7,7 @@ const {
   createNewPatient,
   updatePatient,
 } = require("../DAO/patients");
-const queryResponseDataSelection = require("../utils/queryResponseDataSelection.");
+const queryResponseDataSelection = require("../utils/queryResponseDataSelection");
 
 exports.getAllPatientsServ = async () => {
   try {
@@ -30,7 +30,6 @@ exports.getAllAdmittedPatientsServ = async () => {
 exports.getPatientsByIdServ = async (params: any) => {
   try {
     const patientById = await getPatientById(params);
-    console.log("Conditions :", params.conditions);
     return queryResponseDataSelection(patientById);
   } catch (err) {
     throw err;
