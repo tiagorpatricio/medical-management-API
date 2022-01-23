@@ -45,7 +45,7 @@ module.exports.createNewPatient = ({
   post_code,
   conditions,
   currently_admitted,
-}) => {
+}) =>
   new Promise((resolve, reject) => {
     connection.query(
       `CALL Create_New_Patient("${first_name}","${last_name}",${age},${
@@ -64,7 +64,6 @@ module.exports.createNewPatient = ({
       }
     );
   });
-};
 
 module.exports.updatePatient = (
   { patientId },
@@ -84,7 +83,7 @@ module.exports.updatePatient = (
     conditions,
     currently_admitted,
   }
-) => {
+) =>
   new Promise((resolve, reject) => {
     connection.query(
       `CALL update_patient(${patientId},"${first_name}","${last_name}",${age},${
@@ -102,6 +101,5 @@ module.exports.updatePatient = (
       }
     );
   });
-};
 
 export {};
