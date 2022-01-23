@@ -23,4 +23,6 @@ app.get("/", (req: any, res: any) => {
 and redirecting requests to them. */
 
 const patientsRoutes = require("./patients");
+const doctorsRoutes = require("./doctors");
 app.use("/patients", patientsRoutes);
+app.use("/doctors", doctorsRoutes);
